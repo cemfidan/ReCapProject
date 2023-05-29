@@ -28,7 +28,7 @@ namespace Business.Concrete
                 if (car.DailyPrice > 0)
                 {
                     _carDal.Add(car);
-                    return new SuccessResult(Messages.CarAdded);
+                    return new SuccessResult(Messages.Added);
                 }
             }
             return new ErrorResult("Product did not add");
@@ -42,7 +42,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Car>> GetAll()
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.Listed);
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
