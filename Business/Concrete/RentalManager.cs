@@ -23,6 +23,10 @@ namespace Business.Concrete
 
         public IResult Add(Rental rental)
         {
+            if(rental.ReturnDate == DateTime.MinValue)
+            {
+                return new ErrorResult(Messages.Failed);
+            }
             _rentalDal.Add(rental);
             return new SuccessResult(Messages.Added);
         }
